@@ -6,7 +6,7 @@
 > Credit til Bjergaard#6465 og Jenner#5328 For at hjælpe med nogen små fejl.
 
 ## installering
-> Først skal du tage HT_base og M1kk4l_Bilskrot og putte den ind i din resource.
+> Først skal du tage HT_base og M1kk4l_Bilskrot og ligge ind i din resource mappe.
 > Nu skal du ind i din server.cfg eller server_resource.cfg og skrive nedenstående i en ny linje:
 >```
 >start HT_base
