@@ -17,4 +17,7 @@
 >Nu refresher du eller genstarter din server.
 >
 
+## Krav
+> Mythic_Notify
+
 M1kk4l © 2021 | Alle Rettigheder Forbeholdes.
