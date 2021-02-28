@@ -14,6 +14,8 @@ M1kk4l.Key = 38 -- Key til at skrotte
 
 M1kk4l.Group = "Mekaniker" -- Jobbet til at skrotte
 
+M1kk4l.Webhook = "DIN WEBHOOK" -- Her kan du skrive din webhook ind
+
 -- ↓ Penge man får. (DET ER ET RANDOM TAL DEN GIVER) ↓
 M1kk4l.Penge = {3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000, 5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900}
 
