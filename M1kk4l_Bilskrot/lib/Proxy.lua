@@ -31,9 +31,7 @@ function Proxy.addInterface(name, itable)
 
     if type(f) == "function" then
       callback({f(table.unpack(args))}) -- call function with and return values through callback
-      -- CancelEvent() -- cancel event doesn't seem to cancel the event for the other handlers, but if it does, uncomment this
     else
-      -- print("error: proxy call "..name..":"..member.." not found")
     end
   end)
 end
