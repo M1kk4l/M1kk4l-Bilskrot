@@ -5,7 +5,6 @@
 ██║╚██╔╝██║╚═╝██║  ██╔═██╗ ██╔═██╗ ███████║██║
 ██║ ╚═╝ ██║███████╗██║ ╚██╗██║ ╚██╗╚════██║███████╗
 ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝     ╚═╝╚══════╝
-M1kk4l © 2021 | Alle Rettigheder Forbeholdes.
 --]] 
 
 HT = nil
@@ -53,7 +52,7 @@ Citizen.CreateThread(function()
                                         ped = CreatePed(4, 0x62CC28E2, GetEntityCoords(ped), 0, false, true)
                                         
                                         local dimension = GetModelDimensions(GetEntityModel(vehicle))
-                                        AttachEntityToEntity(ped, vehicle, GetPedBoneIndex(ped, 6286), 0.0, dimension.y * -1 + 0.1 , dimension.z + 1.0, 0.0, 0.0, 180.0, 0.0, false, false, true, false, true)                                
+                                        AttachEntityToEntity(ped, vehicle, GetPedBoneIndex(ped, 6286), 1.0, dimension.y * -1 + 0.1 , dimension.z + 1.3, 0.0, 0.0, 180.0, 0.0, false, false, true, false, true)                                
 
                                         FreezeEntityPosition(ped, true)
                                         SetEntityInvincible(ped, true)
