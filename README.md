@@ -11,15 +11,15 @@
 > Først skal du tage HT_base, M1kk4l_Bilskrot og M1kk4l_progressBar og ligge ind i din resource mappe.
 > Nu skal du ind i din server.cfg eller server_resource.cfg og skrive nedenstående i en ny linje:
 >```
->start HT_base
->start M1kk4l_Bilskrot
->start M1kk4l_progressBars
+>ensure HT_base
+>ensure M1kk4l_Bilskrot
+>ensure M1kk4l_progressBars
 >```
 >
 >Nu refresher du eller genstarter din server.
 >
 
 ## Krav
-> Mythic_Notify
+> pNotify
 
 M1kk4l © 2021 | Alle Rettigheder Forbeholdes.

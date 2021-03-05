@@ -414,7 +414,6 @@ end)
 
 RegisterNetEvent('HT_base:getBaseObjects')
 AddEventHandler('HT_base:getBaseObjects', function(cb)
-	print("TEST")
 	cb(HT)
 end)
 

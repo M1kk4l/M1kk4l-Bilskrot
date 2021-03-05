@@ -19,7 +19,6 @@ HT.TriggerServerCallback = function(name, requestId, source, cb, ...)
     if HT.ServerCallbacks[name] ~= nil then
         HT.ServerCallbacks[name](source, cb, ...)
     else
-        --print('TriggerServerCallback => [' .. name .. '] does not exist')
     end
 end
 

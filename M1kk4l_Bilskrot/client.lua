@@ -24,11 +24,11 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
         if Skrot then
-            for k,v in pairs(M1kk4l.Sted) do
-                if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),v.x,v.y,v.z, true) < 35 then
-                    DrawMarker(36, v.x,v.y,v.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 1.5001, 60, 163, 49, 250, 0, 0, 0, 1)
-                    if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), v.x,v.y,v.z, true ) < 1 then
-                        DrawText3D(v.x,v.y,v.z+1.0, "[~b~E~w~] Skrotte køretøjet")
+            for k,sted in pairs(M1kk4l.Steder) do
+                if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),sted.x,sted.y,sted.z, true) < 35 then
+                    DrawMarker(36, sted.x,sted.y,sted.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 1.5001, 60, 163, 49, 250, 0, 0, 0, 1)
+                    if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), sted.x,sted.y,sted.z, true ) < 1 then
+                        DrawText3D(sted.x,sted.y,sted.z+1.0, "[~b~E~w~] Skrotte køretøjet")
                         if IsControlJustPressed (1, M1kk4l.Key) then
                             HT.TriggerServerCallback('M1kk4l:Client:CheckJob', function(Job)
                                 if Job == true then
@@ -92,47 +92,46 @@ Citizen.CreateThread(function()
     end
 end)
 
-
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)
-    local px, py, pz = table.unpack(GetGameplayCamCoords())
-  
-    SetTextScale(0.35, 0.35)
-    SetTextFont(4)
-    SetTextProportional(1)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(1)
-    AddTextComponentString(text)
-    DrawText(_x, _y)
+    if onScreen then
+        SetTextScale(0.35, 0.35)
+        SetTextFont(4)
+        SetTextProportional(1)
+        SetTextColour(255, 255, 255, 215)
+        SetTextEntry("STRING")
+        SetTextCentre(1)
+        AddTextComponentString(text)
+        DrawText(_x, _y)
         local factor = (string.len(text)) / 370
-    DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 41, 11, 41, 68)
+        DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 41, 11, 41, 68)
+    end
 end
 
 function DeleteGivenVehicle(veh, timeoutMax)
     local timeout = 0 
-    
+
     SetEntityAsMissionEntity(veh, true, true)
     DeleteVehicle(veh)
 
     if (DoesEntityExist(veh)) then
-        exports['mythic_notify']:DoHudText('error', 'Kunne ikke skrotte køretøjet. Prøv igen.')
+        TriggerEvent("pNotify:SendNotification",{text = "Kunne ikke skrotte køretøjet. Prøv igen.",type = "error",timeout = (5000),layout = "centerRight",queue = "global",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})    
 
-        while (DoesEntityExist(veh) and timeout < timeoutMax) do 
+        while (DoesEntityExist(veh) and timeout < timeoutMax) do
             DeleteVehicle(veh)
 
-            if (not DoesEntityExist(veh) ) then 
-                exports['mythic_notify']:DoHudText('success', 'Køretøjet er skrottet.')
-            end 
+            if (not DoesEntityExist(veh) ) then
+                TriggerEvent("pNotify:SendNotification",{text = "Køretøjet er skrottet.",type = "success",timeout = (5000),layout = "centerRight",queue = "global",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})    
+            end
 
-            timeout = timeout + 1 
+            timeout = timeout + 1
             Citizen.Wait(500)
 
             if (DoesEntityExist(veh) and (timeout == timeoutMax - 1)) then
-                exports['mythic_notify']:DoHudText('error', 'Kunne ikke skrotte køretøjet. Prøv igen.')
-            end 
-        end 
-    else 
-        exports['mythic_notify']:DoHudText('success', 'Køretøjet er skrottet.')
-    end 
-end 
+                TriggerEvent("pNotify:SendNotification",{text = "Kunne ikke skrotte køretøjet. Prøv igen.",type = "error",timeout = (5000),layout = "centerRight",queue = "global",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})    
+            end
+        end
+    else
+        TriggerEvent("pNotify:SendNotification",{text = "Køretøjet er skrottet.",type = "success",timeout = (5000),layout = "centerRight",queue = "global",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})    
+    end
+end
